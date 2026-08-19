@@ -459,3 +459,86 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
   .shop { grid-template-columns: 1fr; }
   .team { grid-template-columns: 1fr; max-width: 22rem; }
 }
+
+/* ---------- Reviews ---------- */
+.reviews { border-top: 1px solid var(--line); }
+
+.quotes {
+  list-style: none;
+  padding: 0;
+  margin-top: 3.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+}
+.quote blockquote {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  line-height: 1.3;
+}
+.quote cite {
+  display: block;
+  margin-top: 1rem;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-style: normal;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.reviews__link {
+  display: inline-block;
+  margin-top: 3rem;
+  font-size: 0.9375rem;
+  border-bottom: 1px solid var(--brass);
+  text-decoration: none;
+  padding-bottom: 2px;
+}
+
+/* ---------- Visit ---------- */
+.visit {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: clamp(2rem, 6vw, 4rem);
+  margin-top: 3.5rem;
+}
+.visit__map iframe {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--line);
+}
+
+.visit__heading {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin-top: 2rem;
+}
+.visit__heading:first-child { margin-top: 0; }
+.visit__details p { margin-top: 0.6rem; }
+.visit__details a { text-decoration-color: var(--line); text-underline-offset: 3px; }
+
+.hours-table {
+  width: 100%;
+  margin-top: 0.6rem;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+  font-variant-numeric: tabular-nums;
+}
+.hours-table th,
+.hours-table td { padding: 0.5rem 0; border-bottom: 1px solid var(--line); }
+.hours-table th { font-weight: 400; text-align: left; color: var(--muted); }
+.hours-table td { text-align: right; }
+.hours-table .is-today th,
+.hours-table .is-today td { color: var(--ink); font-weight: 500; }
+.hours-table .is-today th::after { content: " · today"; color: var(--brass); }
+
+.visit__cta { margin-top: 2rem; }
+
+@media (max-width: 860px) {
+  .quotes { grid-template-columns: 1fr; }
+  .visit { grid-template-columns: 1fr; }
+}
