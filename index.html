@@ -209,6 +209,16 @@
 
   </main>
 
+  <dialog class="lightbox" id="lightbox" aria-label="Gallery image viewer">
+    <button class="lightbox__close" data-lb="close" aria-label="Close gallery">&times;</button>
+    <button class="lightbox__nav lightbox__nav--prev" data-lb="prev" aria-label="Previous image">&#8249;</button>
+    <figure class="lightbox__figure">
+      <img id="lightbox-img" src="" alt="">
+      <figcaption id="lightbox-caption"></figcaption>
+    </figure>
+    <button class="lightbox__nav lightbox__nav--next" data-lb="next" aria-label="Next image">&#8250;</button>
+  </dialog>
+
   <div class="mobile-bar">
     <a class="btn btn--ghost" href="tel:+64204227237">Call</a>
     <a class="btn btn--primary"
