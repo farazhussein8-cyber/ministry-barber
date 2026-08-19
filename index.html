@@ -6,10 +6,78 @@
   <title>Barber Station — Barbershop in Mount Wellington, Auckland</title>
   <meta name="description" content="Barber Station is a barbershop on Camp Road, Mount Wellington, Auckland. Rated 4.8 from 118 Google reviews. Book online, or call 020 422 7237.">
 
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <!-- TODO-CONTENT: replace every example.com below with the real domain, and
+       swap og-image.svg for a real 1200x630 JPEG (then restore the width and
+       height tags noted in LAUNCH.md). -->
+  <meta property="og:type" content="business.business">
+  <meta property="og:site_name" content="Barber Station">
+  <meta property="og:title" content="Barber Station — Barbershop in Mount Wellington, Auckland">
+  <meta property="og:description" content="Rated 4.8 from 118 Google reviews. Book online, or call 020 422 7237.">
+  <meta property="og:image" content="https://example.com/images/og-image.svg">
+  <meta property="og:url" content="https://example.com">
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Single source of truth for opening hours. js/main.js parses this block
+       to drive the open/closed chip and the today-highlight in the hours
+       table. Keep it in sync with the visible table in the Visit section. -->
+  <script type="application/ld+json" id="business-schema">
+  {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    "name": "Barber Station",
+    "description": "Barbershop in Mount Wellington, Auckland.",
+    "image": "https://example.com/images/og-image.svg",
+    "telephone": "+64204227237",
+    "email": "barberstationltd@gmail.com",
+    "url": "https://example.com",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1/2 Camp Road",
+      "addressLocality": "Mount Wellington",
+      "addressRegion": "Auckland",
+      "postalCode": "1062",
+      "addressCountry": "NZ"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -36.9089,
+      "longitude": 174.8443
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday"],
+        "opens": "06:00",
+        "closes": "14:00"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "118"
+    },
+    "hasMap": "https://maps.google.com/?q=Barber+Station+Camp+Road+Mount+Wellington",
+    "potentialAction": {
+      "@type": "ReserveAction",
+      "target": "https://barberstationskz8.setmore.com"
+    }
+  }
+  </script>
+  <!-- TODO-CONTENT: confirm geo coordinates and street address (1/2 vs 2 Camp Road) -->
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
