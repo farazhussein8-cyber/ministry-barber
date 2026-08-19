@@ -1,0 +1,11 @@
+{
+  "name": "barber-station",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Brochure website for Barber Station, Mount Wellington, Auckland",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/",
+    "serve": "node tools/serve.js"
+  }
+}
