@@ -542,3 +542,44 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
   .quotes { grid-template-columns: 1fr; }
   .visit { grid-template-columns: 1fr; }
 }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding-block: 3rem;
+}
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem 2.5rem;
+}
+.site-footer__nav { display: flex; gap: 1.5rem; margin-right: auto; }
+.site-footer__nav a { font-size: 0.9375rem; text-decoration: none; }
+.site-footer__nav a:hover { border-bottom: 1px solid var(--brass); }
+.site-footer__legal {
+  width: 100%;
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+/* ---------- Reveal ----------
+   The .reveal class is added by JavaScript, never in the HTML, so that with
+   JS disabled nothing is ever set to opacity 0. */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
