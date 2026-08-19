@@ -350,7 +350,9 @@
     <button class="lightbox__close" data-lb="close" aria-label="Close gallery">&times;</button>
     <button class="lightbox__nav lightbox__nav--prev" data-lb="prev" aria-label="Previous image">&#8249;</button>
     <figure class="lightbox__figure">
-      <img id="lightbox-img" src="" alt="">
+      <!-- src is set by lightbox.js on open; an empty src="" would resolve
+           against the page URL and fire a junk request. -->
+      <img id="lightbox-img" alt="">
       <figcaption id="lightbox-caption"></figcaption>
     </figure>
     <button class="lightbox__nav lightbox__nav--next" data-lb="next" aria-label="Next image">&#8250;</button>

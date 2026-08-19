@@ -382,7 +382,13 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
 .lightbox {
   width: min(94vw, 1100px);
   max-width: none;
-  max-height: 92vh;
+  /* Leave room above and below for the close button and the nav arrows, which
+     sit outside the dialog box on desktop. */
+  max-height: 84vh;
+  /* The reset's `* { margin: 0 }` beats the UA stylesheet's `dialog { margin:
+     auto }`, which is what centres a modal dialog. Without this the dialog
+     pins to the top-left and the outside controls land off-screen. */
+  margin: auto;
   padding: 0;
   border: 0;
   background: transparent;
@@ -406,8 +412,12 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
 
 .lightbox__close {
   position: absolute;
-  top: -2.75rem;
+  top: -3rem;
   right: 0;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
   font-size: 2.25rem;
   line-height: 1;
   color: var(--paper);
@@ -431,6 +441,16 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
   .lightbox__nav--prev { left: 0; }
   .lightbox__nav--next { right: 0; }
   .lightbox__nav { background: rgba(19, 18, 17, 0.55); }
+
+  /* On a phone the dialog fills the height, so a close button sitting above
+     it lands off-screen. Bring it inside and give it a backing so it stays
+     legible over the image. */
+  .lightbox__close {
+    top: 0.35rem;
+    right: 0.35rem;
+    background: rgba(19, 18, 17, 0.55);
+    border-radius: 999px;
+  }
 }
 
 /* ---------- The shop ---------- */

@@ -1824,6 +1824,7 @@ initStatus();
 initNav();
 initHeader();
 initReveal();
+initLightbox();
 initYear();
 ```
 
