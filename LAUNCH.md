@@ -100,6 +100,12 @@ For reference, these were checked and passed:
 - The fixed mobile bar clears the footer at the very bottom of the page.
 - Header hairline appears on scroll and retracts at the top.
 - Anchor links land clear of the sticky header.
+- A full interaction pass at desktop (15 checks), mobile (18) and tablet (8),
+  all passing: every nav link scrolls to its section, the mobile menu opens and
+  closes on tap, the lightbox opens/navigates/closes and restores focus to the
+  thumbnail that opened it, every lightbox control is on-screen with a 44×44
+  tap target, and all six sections reveal on scroll.
+- Clean console on a fresh page load: zero errors, zero failed requests.
 
 ## After go-live
 
