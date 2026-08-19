@@ -1,0 +1,12 @@
+# Development-only files. None of this belongs on the public site.
+#
+# tools/serve.js in particular contains the /dev-upload drop page used to get
+# the hero image onto disk. It cannot run on a static host, but there is no
+# reason to publish its source either.
+
+tools/
+tests/
+docs/
+node_modules/
+package.json
+LAUNCH.md
