@@ -428,3 +428,34 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
   .lightbox__nav--next { right: 0; }
   .lightbox__nav { background: rgba(19, 18, 17, 0.55); }
 }
+
+/* ---------- The shop ---------- */
+.shop {
+  display: grid;
+  grid-template-columns: 5fr 6fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+}
+.shop__media img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.shop__copy .lede { margin-top: 1.5rem; max-width: 42ch; }
+
+.team {
+  list-style: none;
+  padding: 0;
+  margin-top: clamp(3rem, 7vw, 5rem);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 3vw, 2.5rem);
+}
+.team__member img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.team__name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+.team__role { color: var(--muted); font-size: 0.875rem; }
+
+@media (max-width: 860px) {
+  .shop { grid-template-columns: 1fr; }
+  .team { grid-template-columns: 1fr; max-width: 22rem; }
+}
