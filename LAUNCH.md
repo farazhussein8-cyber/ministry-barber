@@ -70,10 +70,12 @@ These came from the Google Business listing and are already in the site:
 - [ ] **8 gallery photographs.** The grid expects a mix: two tall portraits, two
       wide landscapes, four square. Shooting to those shapes keeps the layout.
 - [ ] **1–2 interior photographs.**
-- [ ] **Three genuine Google review quotes** with reviewer first names.
-      **These must be real and quoted accurately.** Inventing testimonials for a
-      trading business breaches the Fair Trading Act. With 113 reviews at 5.0
-      there is plenty to choose from.
+- [x] ~~Three genuine Google review quotes.~~ **Done.** Murphy R., William I.
+      and Spencer W. are on the site, quoted in full and unedited. Each was
+      picked because it appears complete on the Google listing rather than
+      truncated behind "…More", so nothing is taken out of context. If you swap
+      any of them, quote accurately — inventing or editing testimonials for a
+      trading business breaches the Fair Trading Act.
 - [ ] Logo file, ideally SVG (optional — the wordmark is set in type otherwise).
 
 ## Technical before go-live
