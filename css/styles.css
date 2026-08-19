@@ -9,6 +9,10 @@
   --muted: #706C66;
   --line: #E6E2DB;
   --brass: #B4884D;
+  /* --brass on --paper is 3.04:1 — fine for large text, rules, dots and focus
+     rings, but it fails WCAG AA for small text. This darkened variant is 4.86:1
+     and is used wherever brass carries body-sized type. */
+  --brass-text: #8C6733;
 
   --font-display: "Instrument Serif", Georgia, "Times New Roman", serif;
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -80,7 +84,7 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--brass);
+  color: var(--brass-text);
   margin-bottom: 1.75rem;
 }
 
@@ -514,7 +518,7 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--brass);
+  color: var(--brass-text);
   margin-top: 2rem;
 }
 .visit__heading:first-child { margin-top: 0; }
@@ -534,7 +538,7 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
 .hours-table td { text-align: right; }
 .hours-table .is-today th,
 .hours-table .is-today td { color: var(--ink); font-weight: 500; }
-.hours-table .is-today th::after { content: " · today"; color: var(--brass); }
+.hours-table .is-today th::after { content: " · today"; color: var(--brass-text); }
 
 .visit__cta { margin-top: 2rem; }
 
