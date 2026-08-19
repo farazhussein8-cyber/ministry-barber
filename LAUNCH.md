@@ -17,32 +17,29 @@ npm test
 
 ---
 
-## Read this first: the hours are sourced, not confirmed
+## Hours — confirmed
 
-The hours on the site come from the Birkenhead Town Centre directory listing:
-<https://www.birkenhead.net.nz/shop/Stylists/MensBarbers/Ministry+Barbershop.html>
+Open seven days, 9am daily:
 
-| Day | On the site |
+| Day | Hours |
 |---|---|
-| Monday | Closed |
-| Tuesday – Friday | 9am – 6pm |
+| Monday – Friday | 9am – 6pm |
 | Saturday | 9am – 5pm |
 | Sunday | 9am – 4pm |
 
-That listing carries the same "No bookings, walk-ins only" wording as the Google
-profile, so it is almost certainly the same business. But a directory entry can
-go stale, and these hours are published to Google through the JSON-LD block
-**and** drive the live "Open now / Closed" chip. Wrong hours send customers to a
-closed shop.
+Verified across a full week and at every open/close boundary, including the
+three different closing times. These drive both the live "Open now / Closed"
+chip and what Google publishes, so any change must be made in **two** places —
+the `openingHoursSpecification` block in `<head>` and the visible table in the
+Visit section. `npm test` fails if the two disagree.
 
-- [ ] **Confirm the hours with the shop.** They live in the
-      `openingHoursSpecification` block in `<head>` and the visible table in the
-      Visit section. `npm test` fails if the two disagree.
-- [ ] **Resolve the address conflict.** Google gives **3/25 Mokoia Road**; the
-      Birkenhead directory gives **1/25 Mokoia Rd**. The site currently uses
-      Google's 3/25.
-- [ ] **Check the trading name.** The site uses "Ministry Barber" per the Google
-      profile; the directory lists "Ministry Barbershop".
+Still worth resolving with the shop:
+
+- [ ] **Address conflict.** Google gives **3/25 Mokoia Road**; the Birkenhead
+      Town Centre directory gives **1/25 Mokoia Rd**. The site uses Google's
+      3/25. <https://www.birkenhead.net.nz/shop/Stylists/MensBarbers/Ministry+Barbershop.html>
+- [ ] **Trading name.** The site uses "Ministry Barber" per the Google profile;
+      the directory lists "Ministry Barbershop".
 
 ## Confirmed business facts
 

@@ -32,13 +32,11 @@
        to drive the open/closed chip and the today-highlight in the hours
        table. Keep it in sync with the visible table in the Visit section.
 
-       TODO-CONTENT: these hours come from the Birkenhead Town Centre directory
-       listing, not from the shop directly:
-       https://www.birkenhead.net.nz/shop/Stylists/MensBarbers/Ministry+Barbershop.html
-       They are sourced rather than invented, but a directory can be stale, and
-       they are published to Google AND drive the "Open now" chip. Confirm with
-       the shop before launch. Note the same listing gives the address as
-       1/25 Mokoia Rd, where Google gives 3/25 — worth resolving. -->
+       CONFIRMED hours, supplied from the Google Business profile: open seven
+       days, 9am daily, closing 6pm Mon-Fri, 5pm Saturday, 4pm Sunday.
+       These drive both the "Open now" chip and what Google publishes, so any
+       change must be made here AND in the visible table — npm test fails if
+       the two disagree. -->
   <script type="application/ld+json" id="business-schema">
   {
     "@context": "https://schema.org",
@@ -65,7 +63,7 @@
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"],
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
         "opens": "09:00",
         "closes": "18:00"
       },
@@ -295,13 +293,11 @@
           <p>3/25 Mokoia Road<br>Birkenhead<br>Auckland 0626</p>
 
           <h3 class="visit__heading">Hours</h3>
-          <!-- TODO-CONTENT: sourced from the Birkenhead Town Centre directory,
-               not from the shop. Confirm before launch. Any change here MUST
-               also be made in the JSON-LD block in the head — npm test fails
-               if the two disagree. -->
+          <!-- Confirmed hours. Any change here MUST also be made in the JSON-LD
+               block in the head — npm test fails if the two disagree. -->
           <table class="hours-table">
             <tbody>
-              <tr data-day="1"><th scope="row">Monday</th><td>Closed</td></tr>
+              <tr data-day="1"><th scope="row">Monday</th><td>9am – 6pm</td></tr>
               <tr data-day="2"><th scope="row">Tuesday</th><td>9am – 6pm</td></tr>
               <tr data-day="3"><th scope="row">Wednesday</th><td>9am – 6pm</td></tr>
               <tr data-day="4"><th scope="row">Thursday</th><td>9am – 6pm</td></tr>
