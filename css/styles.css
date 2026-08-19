@@ -277,16 +277,17 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
   /* The source is a portrait frame with the barber on the left and the client
      on the right. Favouring the right keeps the clippers and the fade in shot
      when the frame is cropped to a wide band. */
-  /* Vertically biased downward: at 50% the wide crop lands on the barber's
-     head and the shelf, cutting the actual work out of frame. 62% brings the
-     clippers and the client's fade into the band. */
-  object-position: 50% 62%;
+  /* 3:2 landscape source. Biased slightly above centre so the wide crop keeps
+     the head, the gloved hand and the brush, without losing the ring light. */
+  object-position: 50% 45%;
   z-index: -2;
 }
 
-/* Subtle, even dark overlay so the centred white type stays readable. Held at
-   0.60 minimum: against a worst-case pure-white photograph that still gives
-   paper-on-scrim 4.86:1, clearing WCAG AA for normal text. */
+/* The photograph is already dark and moody, so a flat heavy scrim would crush
+   it. This stays light across the top — where the ring light and the fade read
+   as image, not backdrop — then deepens to 0.62 from 26% down, which is where
+   the type begins. 0.62 holds paper-on-scrim at 4.93:1 against a worst-case
+   pure-white pixel, so the white text clears WCAG AA wherever it actually sits. */
 .hero::after {
   content: "";
   position: absolute;
@@ -294,10 +295,25 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
   z-index: -1;
   background: linear-gradient(
     to bottom,
-    rgba(19, 18, 17, 0.60) 0%,
-    rgba(19, 18, 17, 0.64) 55%,
-    rgba(19, 18, 17, 0.70) 100%
+    rgba(19, 18, 17, 0.45) 0%,
+    rgba(19, 18, 17, 0.62) 26%,
+    rgba(19, 18, 17, 0.68) 100%
   );
+}
+
+/* On a phone the frame crops to a tight centre band that lands squarely on the
+   ring light, and the type fills nearly the whole hero — so there is no
+   image-only zone at the top to keep light. Measured at 3.71:1 with the desktop
+   ramp; this flattens it to 0.62 minimum, which restores AA. */
+@media (max-width: 860px) {
+  .hero::after {
+    background: linear-gradient(
+      to bottom,
+      rgba(19, 18, 17, 0.62) 0%,
+      rgba(19, 18, 17, 0.66) 40%,
+      rgba(19, 18, 17, 0.72) 100%
+    );
+  }
 }
 
 .hero__eyebrow {
