@@ -259,13 +259,22 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
    viewport height, directly beneath the header band. */
 .hero {
   position: relative;
+  /* Two rows: the headline block takes the free space and centres in it, the
+     status bar sits on the floor of the hero. */
   display: grid;
-  place-items: center;
+  grid-template-rows: 1fr auto;
+  justify-items: center;
+  align-items: center;
   text-align: center;
   min-height: clamp(420px, 60vh, 700px);
   padding-block: clamp(3rem, 7vw, 5rem);
   isolation: isolate;
   color: var(--paper);
+}
+
+.hero__bar {
+  align-self: end;
+  padding-top: clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .hero__img {
@@ -339,9 +348,9 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.6rem 1.75rem;
-  font-size: 0.9375rem;
-  margin-bottom: clamp(1.75rem, 3.5vw, 2.5rem);
+  align-items: center;
+  gap: 0.5rem 1.75rem;
+  font-size: 0.875rem;
 }
 .hero__proof li { display: flex; align-items: center; gap: 0.45rem; }
 
