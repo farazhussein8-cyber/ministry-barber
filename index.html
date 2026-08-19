@@ -32,9 +32,13 @@
        to drive the open/closed chip and the today-highlight in the hours
        table. Keep it in sync with the visible table in the Visit section.
 
-       TODO-CONTENT: THE CLOSING TIMES BELOW ARE PLACEHOLDERS. The Google
-       listing only confirms a 9am open. Wrong hours here are published to
-       Google AND drive the "Open now" chip, so confirm them before launch. -->
+       TODO-CONTENT: these hours come from the Birkenhead Town Centre directory
+       listing, not from the shop directly:
+       https://www.birkenhead.net.nz/shop/Stylists/MensBarbers/Ministry+Barbershop.html
+       They are sourced rather than invented, but a directory can be stale, and
+       they are published to Google AND drive the "Open now" chip. Confirm with
+       the shop before launch. Note the same listing gives the address as
+       1/25 Mokoia Rd, where Google gives 3/25 — worth resolving. -->
   <script type="application/ld+json" id="business-schema">
   {
     "@context": "https://schema.org",
@@ -61,7 +65,7 @@
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"],
         "opens": "09:00",
         "closes": "18:00"
       },
@@ -70,6 +74,12 @@
         "dayOfWeek": ["Saturday"],
         "opens": "09:00",
         "closes": "17:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Sunday"],
+        "opens": "09:00",
+        "closes": "16:00"
       }
     ],
     "aggregateRating": {
@@ -285,18 +295,19 @@
           <p>3/25 Mokoia Road<br>Birkenhead<br>Auckland 0626</p>
 
           <h3 class="visit__heading">Hours</h3>
-          <!-- TODO-CONTENT: CLOSING TIMES ARE PLACEHOLDERS. Only the 9am open is
-               confirmed. Any change here MUST also be made in the JSON-LD
-               openingHoursSpecification block in the head. -->
+          <!-- TODO-CONTENT: sourced from the Birkenhead Town Centre directory,
+               not from the shop. Confirm before launch. Any change here MUST
+               also be made in the JSON-LD block in the head — npm test fails
+               if the two disagree. -->
           <table class="hours-table">
             <tbody>
-              <tr data-day="1"><th scope="row">Monday</th><td>9am – 6pm</td></tr>
+              <tr data-day="1"><th scope="row">Monday</th><td>Closed</td></tr>
               <tr data-day="2"><th scope="row">Tuesday</th><td>9am – 6pm</td></tr>
               <tr data-day="3"><th scope="row">Wednesday</th><td>9am – 6pm</td></tr>
               <tr data-day="4"><th scope="row">Thursday</th><td>9am – 6pm</td></tr>
               <tr data-day="5"><th scope="row">Friday</th><td>9am – 6pm</td></tr>
               <tr data-day="6"><th scope="row">Saturday</th><td>9am – 5pm</td></tr>
-              <tr data-day="0"><th scope="row">Sunday</th><td>Closed</td></tr>
+              <tr data-day="0"><th scope="row">Sunday</th><td>9am – 4pm</td></tr>
             </tbody>
           </table>
 
