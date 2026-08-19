@@ -90,12 +90,11 @@ These came from the Google Business listing and are already in the site:
 - [ ] Test the `tel:` link on a real phone.
 - [ ] Check the Google Maps directions links resolve to the correct shop — they
       currently search by name and address rather than by place ID.
-- [ ] **Confirm the embedded map actually renders on the deployed site.** The
-      iframe is present and correctly configured, but it renders blank in the
-      sandboxed preview browser used during the build, which blocks third-party
-      frames. This could not be verified locally. If it stays blank in
-      production, replace the embed with a static map image linking out to
-      Google Maps — an empty grey box is worse than no map.
+- [x] ~~Confirm the embedded map renders.~~ **Verified.** It loads and resolves
+      to the correct business — the pin reads MINISTRY BARBER, 3/25 Mokoia Road,
+      Birkenhead, with the 5.0 ★ (113) badge. The earlier blank render was the
+      preview browser being slow to load third-party frames, not a fault in the
+      embed.
 - [ ] Run Google's Rich Results Test on the deployed URL — expect `HairSalon`
       detected with zero errors.
 - [ ] Run Lighthouse in mobile mode. Targets: Performance ≥ 90, Accessibility
