@@ -34,8 +34,12 @@ function tableRowsFromHtml() {
 test("the JSON-LD block is valid JSON and describes the business", () => {
   const schema = schemaFromHtml();
   assert.equal(schema["@type"], "HairSalon");
-  assert.equal(schema.name, "Barber Station");
-  assert.equal(schema.telephone, "+64204227237");
+  assert.equal(schema.name, "Ministry Barber");
+  assert.equal(schema.telephone, "+64211698886");
+  assert.equal(schema.address.streetAddress, "3/25 Mokoia Road");
+  assert.equal(schema.address.addressLocality, "Birkenhead");
+  assert.equal(schema.aggregateRating.ratingValue, "5.0");
+  assert.equal(schema.aggregateRating.reviewCount, "113");
 });
 
 test("the visible hours table covers all seven days exactly once", () => {
@@ -66,13 +70,25 @@ test("the visible hours table agrees with the JSON-LD schema", () => {
 
 test("contact details are consistent across the page", () => {
   const schema = schemaFromHtml();
-  assert.ok(html.includes('href="tel:+64204227237"'), "tel: link present");
+  assert.ok(html.includes('href="tel:+64211698886"'), "tel: link present");
   assert.ok(
-    html.includes(`href="mailto:${schema.email}"`),
-    "mailto: link matches the schema email"
+    html.includes("021 169 8886"),
+    "the human-readable phone number is shown"
   );
   assert.ok(
-    html.includes("https://barberstationskz8.setmore.com"),
-    "Setmore booking link present"
+    html.includes("3/25 Mokoia Road"),
+    "street address matches the schema"
   );
+});
+
+test("the shop takes no bookings, so nothing on the page offers one", () => {
+  // Ministry Barber is walk-ins only. A stray booking link or button would be
+  // a promise the business cannot keep.
+  assert.ok(!/setmore/i.test(html), "no Setmore booking link");
+  assert.ok(!/ReserveAction/.test(html), "no ReserveAction in the schema");
+  assert.ok(
+    !/>\s*Book[^<]*</i.test(html),
+    "no button or link whose label starts with 'Book'"
+  );
+  assert.ok(/walk-ins only/i.test(html), "walk-ins-only is stated on the page");
 });

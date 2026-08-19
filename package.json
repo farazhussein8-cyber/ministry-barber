@@ -1,8 +1,8 @@
 {
-  "name": "barber-station",
+  "name": "ministry-barber",
   "version": "1.0.0",
   "private": true,
-  "description": "Brochure website for Barber Station, Mount Wellington, Auckland",
+  "description": "Brochure website for Ministry Barber, Birkenhead, Auckland",
   "type": "module",
   "scripts": {
     "test": "node --test",

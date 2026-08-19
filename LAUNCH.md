@@ -1,14 +1,15 @@
-# Launch checklist — Barber Station
+# Launch checklist — Ministry Barber
 
 Nothing on this list is optional. Every `TODO-CONTENT` marker in `index.html`
-must be resolved before this site goes public. There are **12** of them today:
+must be resolved before this site goes public:
 
 ```bash
 grep -n "TODO-CONTENT" index.html
 ```
 
 Run the test suite after any content edit — it checks that the visible hours
-table and the JSON-LD schema still agree:
+table and the JSON-LD schema still agree, and that no booking link has crept
+back onto a walk-ins-only site:
 
 ```bash
 npm test
@@ -16,35 +17,66 @@ npm test
 
 ---
 
-## Facts to confirm with the shop
+## Read this first: the hours are placeholders
 
-- [ ] **Street address: 1/2 Camp Road or 2 Camp Road?** Google Business says
-      `1/2`, the Setmore page says `2`. One of them is wrong.
-- [ ] **Opening hours**, especially the **Saturday 6:00am** open — unusual enough
-      to be worth re-checking.
-- [ ] Exact Facebook page URL.
-- [ ] The domain name, and where the site will be hosted.
+The Google listing only confirms that the shop **opens at 9am**. Every closing
+time on this site is invented:
+
+| Day | On the site | Confirmed? |
+|---|---|---|
+| Mon–Fri | 9am – 6pm | open time only |
+| Saturday | 9am – 5pm | open time only |
+| Sunday | Closed | **no** |
+
+This matters more than a placeholder price. These hours are published to Google
+through the JSON-LD block **and** drive the live "Open now / Closed" chip in the
+hero. Wrong hours send customers to a closed shop.
+
+- [ ] **Confirm the real opening hours and update both places.** They live in
+      the `openingHoursSpecification` block in `<head>` and the visible table in
+      the Visit section. `npm test` fails if the two disagree.
+
+## Confirmed business facts
+
+These came from the Google Business listing and are already in the site:
+
+| Field | Value |
+|---|---|
+| Name | Ministry Barber |
+| Address | 3/25 Mokoia Road, Birkenhead, Auckland 0626 |
+| Phone | 021 169 8886 |
+| Rating | 5.0 from 113 Google reviews |
+| Booking | **None — walk-ins only** |
+
+## Facts still missing
+
+- [ ] Email address — the listing shows none, so the site has no email link.
+- [ ] Social links — none found. Add them to the Visit section if they exist.
+- [ ] Domain name, and where the site will be hosted. The listing has no
+      website yet, so this will be the shop's first.
 
 ## Content to supply
 
-- [ ] **Full service menu** — every service, duration and price. Only
-      "Haircut, 30 min" is currently known, and it has no price. All six rows on
-      the page are placeholders reading `$00`.
+- [ ] **Prices.** All six service rows read `$00`. Confirm the service list too —
+      the current rows (haircut, skin fade, fade & beard, beard trim, clean
+      shave, kids cut) are inferred from the shop's own description, not from a
+      price list.
 - [ ] **Hero photograph**, landscape, at least 1600px wide.
 - [ ] **8 gallery photographs.** The grid expects a mix: two tall portraits, two
       wide landscapes, four square. Shooting to those shapes keeps the layout.
 - [ ] **1–2 interior photographs.**
-- [ ] **One portrait per barber**, plus first names and a one-line description.
 - [ ] **Three genuine Google review quotes** with reviewer first names.
       **These must be real and quoted accurately.** Inventing testimonials for a
-      trading business breaches the Fair Trading Act.
+      trading business breaches the Fair Trading Act. With 113 reviews at 5.0
+      there is plenty to choose from.
 - [ ] Logo file, ideally SVG (optional — the wordmark is set in type otherwise).
 
 ## Technical before go-live
 
 - [ ] Replace every `example.com` in the JSON-LD block and the Open Graph tags
       with the real domain.
-- [ ] Confirm the `geo` latitude and longitude against Google Maps.
+- [ ] Confirm the `geo` latitude and longitude against Google Maps. They are
+      currently an approximation for Birkenhead, not a surveyed position.
 - [ ] Replace `images/og-image.svg` with a real **1200×630 JPEG**, update the
       `og:image` references, and add back:
       ```html
@@ -53,63 +85,56 @@ npm test
       ```
 - [ ] Write real `alt` text for every photograph. The current alt text describes
       images that do not exist yet.
-- [ ] Confirm the visible hours table and the JSON-LD `openingHoursSpecification`
-      state the same hours. `npm test` enforces this.
-- [ ] Update `aggregateRating` if the Google rating or review count has moved.
-      **Never state a rating the listing does not support.**
-- [ ] Test `tel:` and `mailto:` links on a real phone.
-- [ ] Confirm the Setmore link opens the correct booking page.
+- [ ] Update `aggregateRating` if the rating or review count has moved.
+      **Never state a rating the Google listing does not support.**
+- [ ] Test the `tel:` link on a real phone.
+- [ ] Check the Google Maps directions links resolve to the correct shop — they
+      currently search by name and address rather than by place ID.
 - [ ] Run Google's Rich Results Test on the deployed URL — expect `HairSalon`
       detected with zero errors.
-- [ ] Run Lighthouse in mobile mode on the deployed URL. Targets: Performance
-      ≥ 90, Accessibility 100, Best Practices ≥ 95, SEO 100.
+- [ ] Run Lighthouse in mobile mode. Targets: Performance ≥ 90, Accessibility
+      100, Best Practices ≥ 95, SEO 100.
 
 ## Human checks still outstanding
 
-These could not be verified programmatically during the build and need a person:
+These could not be verified programmatically and need a person:
 
-- [ ] **Keyboard pass.** Tab from the top of the page to the bottom with a real
-      keyboard. Every link, button and gallery thumbnail must show a visible
-      brass focus ring. The stylesheet is correct and nothing suppresses
-      outlines, but `:focus-visible` only activates on genuine keyboard focus,
-      which an automated harness cannot produce.
-- [ ] **Lightbox by keyboard.** Open a thumbnail with `Enter`, navigate with
-      `←`/`→`, close with `Esc`, and confirm focus lands back on the thumbnail
-      you opened.
+- [ ] **Keyboard pass.** Tab from top to bottom. Every link, button and gallery
+      thumbnail must show a visible brass focus ring. The stylesheet is correct
+      and nothing suppresses outlines, but `:focus-visible` only activates on
+      genuine keyboard focus, which an automated harness cannot produce.
+- [ ] **Lightbox by keyboard.** Open with `Enter`, navigate with `←`/`→`, close
+      with `Esc`, and confirm focus lands back on the thumbnail you opened.
 - [ ] **Real-device check** on an actual iPhone and Android handset, especially
-      the fixed bottom Book/Call bar against the browser chrome.
+      the fixed bottom Directions/Call bar against the browser chrome.
 - [ ] **Cross-browser:** current Chrome, Safari, Firefox, plus iOS Safari.
 - [ ] **Screen reader spot-check** of the hero, the price menu and the hours
       table.
 
 ## Already verified during the build
 
-For reference, these were checked and passed:
-
-- 15 automated tests, covering the timezone-aware open/closed logic (including
-  the Saturday block, Sunday wrap-around and exact open/close boundaries) and
-  hours/contact consistency between the schema and the visible page.
+- 16 automated tests: the timezone-aware open/closed logic (Saturday block,
+  Sunday wrap-around, exact open/close boundaries), hours and contact
+  consistency between schema and page, and a guard that no booking link,
+  `ReserveAction`, or "Book" button exists on a walk-ins-only site.
 - WCAG AA contrast on every text pair. This forced one change: `--brass`
   (`#B4884D`) is only 3.04:1 on paper, so small brass text uses `--brass-text`
   (`#8C6733`, 4.86:1). Plain `--brass` remains for rules, dots, focus rings and
   large display text, where 3:1 is the applicable threshold.
-- The site renders and reads correctly with JavaScript disabled: no `reveal`
-  classes or `opacity: 0` in the served HTML, the open/closed chip stays hidden
-  rather than showing an empty pill, and the gallery degrades to a plain grid.
+- The site renders and reads correctly with JavaScript disabled.
 - No horizontal overflow at 375, 768, 1280 or 1920px.
 - The fixed mobile bar clears the footer at the very bottom of the page.
-- Header hairline appears on scroll and retracts at the top.
-- Anchor links land clear of the sticky header.
-- A full interaction pass at desktop (15 checks), mobile (18) and tablet (8),
-  all passing: every nav link scrolls to its section, the mobile menu opens and
-  closes on tap, the lightbox opens/navigates/closes and restores focus to the
-  thumbnail that opened it, every lightbox control is on-screen with a 44×44
-  tap target, and all six sections reveal on scroll.
-- Clean console on a fresh page load: zero errors, zero failed requests.
+- The header floats transparent over the hero and switches to the blurred paper
+  bar past it, including on a fragment deep-link and on scroll restoration.
+- Full interaction passes at desktop, tablet and mobile: nav, mobile menu,
+  lightbox open/navigate/close/focus-restore, all controls on-screen with 44×44
+  tap targets, and all sections revealing on scroll.
+- Clean console on a fresh load: zero errors, zero failed requests.
 
 ## After go-live
 
-- [ ] Make the site, Google Business, Setmore and Facebook state an **identical**
-      name, address and phone number. Inconsistent NAP data measurably harms
-      local search ranking.
-- [ ] Add the new domain to the Google Business listing.
+- [ ] Make the site and the Google Business listing state an **identical** name,
+      address and phone number. Inconsistent NAP data measurably harms local
+      search ranking.
+- [ ] Add the new domain to the Google Business listing — it currently has no
+      website, so this is a direct win.

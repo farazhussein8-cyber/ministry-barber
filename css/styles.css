@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Barber Station — editorial minimal design system
+   Ministry Barber — editorial minimal design system
    ========================================================================== */
 
 /* ---------- Tokens ---------- */
@@ -311,6 +311,16 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
 .status[data-open="false"] { color: #D9A5A5; }
 
 .hero__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+/* The single most important thing a first-time visitor needs to know about
+   this shop: there is nothing to book. */
+.hero__note {
+  margin-top: 1.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--paper);
+}
 .hero .btn { border-color: var(--paper); }
 .hero .btn--primary { background: var(--paper); color: var(--ink); }
 .hero .btn--primary:hover { background: transparent; color: var(--paper); }
@@ -356,7 +366,13 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
   text-align: right;
 }
 
-.menu__cta { margin-top: 3rem; }
+/* Walk-ins only: there is no booking flow, so the menu ends on a plain
+   statement of that plus the phone number, not a booking button. */
+.menu__walkin {
+  margin-top: 2.75rem;
+  color: var(--muted);
+}
+.menu__cta { margin-top: 1.25rem; }
 
 @media (max-width: 560px) {
   .menu__row {
@@ -484,25 +500,16 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
 .shop__media img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
 .shop__copy .lede { margin-top: 1.5rem; max-width: 42ch; }
 
-.team {
-  list-style: none;
-  padding: 0;
-  margin-top: clamp(3rem, 7vw, 5rem);
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(1rem, 3vw, 2.5rem);
+/* Ministry Barber is a solo barber ("I have over 15 years of experience"),
+   so there is no team strip — the shop copy carries it. */
+.shop__walkin {
+  margin-top: 1.25rem;
+  color: var(--ink);
+  font-weight: 500;
 }
-.team__member img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
-.team__name {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  margin-top: 1rem;
-}
-.team__role { color: var(--muted); font-size: 0.875rem; }
 
 @media (max-width: 860px) {
   .shop { grid-template-columns: 1fr; }
-  .team { grid-template-columns: 1fr; max-width: 22rem; }
 }
 
 /* ---------- Reviews ---------- */
@@ -580,6 +587,12 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
 .hours-table .is-today th,
 .hours-table .is-today td { color: var(--ink); font-weight: 500; }
 .hours-table .is-today th::after { content: " · today"; color: var(--brass-text); }
+
+.visit__walkin {
+  margin-top: 0.6rem;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
 
 .visit__cta { margin-top: 2rem; }
 

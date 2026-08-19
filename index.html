@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Barber Station — Barbershop in Mount Wellington, Auckland</title>
-  <meta name="description" content="Barber Station is a barbershop on Camp Road, Mount Wellington, Auckland. Rated 4.8 from 118 Google reviews. Book online, or call 020 422 7237.">
+  <title>Ministry Barber — Barbershop in Birkenhead, Auckland</title>
+  <meta name="description" content="Ministry Barber is a walk-in barbershop on Mokoia Road, Birkenhead, Auckland. Fades, beard trims and clean shaves. Rated 5.0 from 113 Google reviews. No bookings — just walk in.">
 
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
 
@@ -12,9 +12,9 @@
        swap og-image.svg for a real 1200x630 JPEG (then restore the width and
        height tags noted in LAUNCH.md). -->
   <meta property="og:type" content="business.business">
-  <meta property="og:site_name" content="Barber Station">
-  <meta property="og:title" content="Barber Station — Barbershop in Mount Wellington, Auckland">
-  <meta property="og:description" content="Rated 4.8 from 118 Google reviews. Book online, or call 020 422 7237.">
+  <meta property="og:site_name" content="Ministry Barber">
+  <meta property="og:title" content="Ministry Barber — Barbershop in Birkenhead, Auckland">
+  <meta property="og:description" content="Fades, beard trims and clean shaves. Rated 5.0 from 113 Google reviews. No bookings — just walk in.">
   <meta property="og:image" content="https://example.com/images/og-image.svg">
   <meta property="og:url" content="https://example.com">
   <meta name="twitter:card" content="summary_large_image">
@@ -26,65 +26,64 @@
 
   <!-- Single source of truth for opening hours. js/main.js parses this block
        to drive the open/closed chip and the today-highlight in the hours
-       table. Keep it in sync with the visible table in the Visit section. -->
+       table. Keep it in sync with the visible table in the Visit section.
+
+       TODO-CONTENT: THE CLOSING TIMES BELOW ARE PLACEHOLDERS. The Google
+       listing only confirms a 9am open. Wrong hours here are published to
+       Google AND drive the "Open now" chip, so confirm them before launch. -->
   <script type="application/ld+json" id="business-schema">
   {
     "@context": "https://schema.org",
     "@type": "HairSalon",
-    "name": "Barber Station",
-    "description": "Barbershop in Mount Wellington, Auckland.",
+    "name": "Ministry Barber",
+    "description": "Modern barber shop in Birkenhead, Auckland. Fades, beard trims and clean shaves. No bookings, walk-ins only.",
     "image": "https://example.com/images/og-image.svg",
-    "telephone": "+64204227237",
-    "email": "barberstationltd@gmail.com",
+    "telephone": "+64211698886",
     "url": "https://example.com",
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "1/2 Camp Road",
-      "addressLocality": "Mount Wellington",
+      "streetAddress": "3/25 Mokoia Road",
+      "addressLocality": "Birkenhead",
       "addressRegion": "Auckland",
-      "postalCode": "1062",
+      "postalCode": "0626",
       "addressCountry": "NZ"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": -36.9089,
-      "longitude": 174.8443
+      "latitude": -36.8118,
+      "longitude": 174.7247
     },
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "08:00",
-        "closes": "17:00"
+        "opens": "09:00",
+        "closes": "18:00"
       },
       {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Saturday"],
-        "opens": "06:00",
-        "closes": "14:00"
+        "opens": "09:00",
+        "closes": "17:00"
       }
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "118"
+      "ratingValue": "5.0",
+      "reviewCount": "113"
     },
-    "hasMap": "https://maps.google.com/?q=Barber+Station+Camp+Road+Mount+Wellington",
-    "potentialAction": {
-      "@type": "ReserveAction",
-      "target": "https://barberstationskz8.setmore.com"
-    }
+    "hasMap": "https://maps.google.com/?q=Ministry+Barber+Mokoia+Road+Birkenhead+Auckland"
   }
   </script>
-  <!-- TODO-CONTENT: confirm geo coordinates and street address (1/2 vs 2 Camp Road) -->
+  <!-- TODO-CONTENT: confirm the geo coordinates against Google Maps -->
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header" id="site-header">
     <div class="wrap site-header__inner">
-      <a class="wordmark" href="#top">Barber&nbsp;Station</a>
+      <a class="wordmark" href="#top">Ministry&nbsp;Barber</a>
 
       <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">
         <span class="nav-toggle__box" aria-hidden="true"></span>
@@ -100,8 +99,8 @@
       </nav>
 
       <a class="btn btn--primary site-header__cta"
-         href="https://barberstationskz8.setmore.com"
-         target="_blank" rel="noopener">Book now</a>
+         href="https://www.google.com/maps/dir/?api=1&amp;destination=Ministry+Barber+3%2F25+Mokoia+Road+Birkenhead+Auckland"
+         target="_blank" rel="noopener">Directions</a>
     </div>
   </header>
 
@@ -110,25 +109,27 @@
     <section class="hero" id="top">
       <!-- TODO-CONTENT: replace with the real hero photograph -->
       <img class="hero__img" src="images/placeholder.svg"
-           alt="The interior of Barber Station in Mount Wellington"
+           alt="Inside Ministry Barber in Birkenhead, Auckland"
            fetchpriority="high" width="1600" height="1000">
 
       <div class="wrap hero__inner">
-        <p class="hero__eyebrow">Mount Wellington, Auckland</p>
-        <h1 class="hero__title">A proper cut,<br>booked in a minute.</h1>
+        <p class="hero__eyebrow">Birkenhead, Auckland</p>
+        <h1 class="hero__title">Walk in.<br>Walk out sharp.</h1>
 
         <ul class="hero__proof">
           <li id="open-status" class="status" hidden></li>
-          <li><span class="stars" aria-hidden="true">★</span> 4.8 · 118 Google reviews</li>
-          <li>1/2 Camp Road, Mount Wellington</li>
+          <li><span class="stars" aria-hidden="true">★</span> 5.0 · 113 Google reviews</li>
+          <li>3/25 Mokoia Road, Birkenhead</li>
         </ul>
 
         <div class="hero__actions">
-          <a class="btn btn--primary"
-             href="https://barberstationskz8.setmore.com"
-             target="_blank" rel="noopener">Book appointment</a>
-          <a class="btn btn--ghost" href="tel:+64204227237">020 422 7237</a>
+          <a class="btn btn--primary" href="tel:+64211698886">Call 021 169 8886</a>
+          <a class="btn btn--ghost"
+             href="https://www.google.com/maps/dir/?api=1&amp;destination=Ministry+Barber+3%2F25+Mokoia+Road+Birkenhead+Auckland"
+             target="_blank" rel="noopener">Get directions</a>
         </div>
+
+        <p class="hero__note">No bookings — walk-ins only.</p>
       </div>
     </section>
 
@@ -136,7 +137,7 @@
       <div class="wrap">
         <p class="eyebrow">01 — Services</p>
         <h2 class="section-title">What we do</h2>
-        <p class="lede menu__lede">Walk in if we're quiet, or book ahead and skip the wait.</p>
+        <p class="lede menu__lede">Fades, beard trims and clean shaves. Sharp, but simple.</p>
 
         <!-- TODO-CONTENT: confirm every service, duration and price with the shop -->
         <ul class="menu">
@@ -146,13 +147,13 @@
             <span class="menu__price">$00</span>
           </li>
           <li class="menu__row">
-            <span class="menu__name">Haircut &amp; beard</span>
-            <span class="menu__meta">45 min</span>
+            <span class="menu__name">Skin fade</span>
+            <span class="menu__meta">40 min</span>
             <span class="menu__price">$00</span>
           </li>
           <li class="menu__row">
-            <span class="menu__name">Skin fade</span>
-            <span class="menu__meta">40 min</span>
+            <span class="menu__name">Fade &amp; beard</span>
+            <span class="menu__meta">45 min</span>
             <span class="menu__price">$00</span>
           </li>
           <li class="menu__row">
@@ -161,20 +162,19 @@
             <span class="menu__price">$00</span>
           </li>
           <li class="menu__row">
-            <span class="menu__name">Kids cut</span>
+            <span class="menu__name">Clean shave</span>
             <span class="menu__meta">30 min</span>
             <span class="menu__price">$00</span>
           </li>
           <li class="menu__row">
-            <span class="menu__name">Hot towel shave</span>
+            <span class="menu__name">Kids cut</span>
             <span class="menu__meta">30 min</span>
             <span class="menu__price">$00</span>
           </li>
         </ul>
 
-        <a class="btn btn--primary menu__cta"
-           href="https://barberstationskz8.setmore.com"
-           target="_blank" rel="noopener">Book a time</a>
+        <p class="menu__walkin">No bookings. Turn up any time we're open.</p>
+        <a class="btn btn--primary menu__cta" href="tel:+64211698886">Call 021 169 8886</a>
       </div>
     </section>
 
@@ -188,21 +188,21 @@
         <!-- TODO-CONTENT: replace all eight images and write real alt text -->
         <ul class="gallery">
           <li><button class="gallery__item gallery__item--tall" data-full="images/placeholder.svg" data-caption="Skin fade">
-            <img src="images/placeholder.svg" alt="A skin fade cut at Barber Station" loading="lazy" width="800" height="1000"></button></li>
+            <img src="images/placeholder.svg" alt="A skin fade cut at Ministry Barber" loading="lazy" width="800" height="1000"></button></li>
           <li><button class="gallery__item" data-full="images/placeholder.svg" data-caption="Textured crop">
-            <img src="images/placeholder.svg" alt="A textured crop cut at Barber Station" loading="lazy" width="800" height="800"></button></li>
-          <li><button class="gallery__item" data-full="images/placeholder.svg" data-caption="Beard shape-up">
-            <img src="images/placeholder.svg" alt="A shaped beard at Barber Station" loading="lazy" width="800" height="800"></button></li>
+            <img src="images/placeholder.svg" alt="A textured crop cut at Ministry Barber" loading="lazy" width="800" height="800"></button></li>
+          <li><button class="gallery__item" data-full="images/placeholder.svg" data-caption="Beard trim">
+            <img src="images/placeholder.svg" alt="A trimmed beard at Ministry Barber" loading="lazy" width="800" height="800"></button></li>
           <li><button class="gallery__item gallery__item--wide" data-full="images/placeholder.svg" data-caption="In the chair">
             <img src="images/placeholder.svg" alt="A barber working in the chair" loading="lazy" width="1200" height="800"></button></li>
           <li><button class="gallery__item gallery__item--tall" data-full="images/placeholder.svg" data-caption="Classic taper">
             <img src="images/placeholder.svg" alt="A classic tapered cut" loading="lazy" width="800" height="1000"></button></li>
           <li><button class="gallery__item" data-full="images/placeholder.svg" data-caption="Line-up">
             <img src="images/placeholder.svg" alt="A sharp line-up" loading="lazy" width="800" height="800"></button></li>
-          <li><button class="gallery__item" data-full="images/placeholder.svg" data-caption="Buzz cut">
-            <img src="images/placeholder.svg" alt="A buzz cut" loading="lazy" width="800" height="800"></button></li>
+          <li><button class="gallery__item" data-full="images/placeholder.svg" data-caption="Clean shave">
+            <img src="images/placeholder.svg" alt="A clean shave finish" loading="lazy" width="800" height="800"></button></li>
           <li><button class="gallery__item gallery__item--wide" data-full="images/placeholder.svg" data-caption="The shop">
-            <img src="images/placeholder.svg" alt="Chairs and mirrors inside Barber Station" loading="lazy" width="1200" height="800"></button></li>
+            <img src="images/placeholder.svg" alt="Chair and mirror inside Ministry Barber" loading="lazy" width="1200" height="800"></button></li>
         </ul>
       </div>
     </section>
@@ -211,42 +211,22 @@
       <div class="wrap shop">
         <div class="shop__media">
           <!-- TODO-CONTENT: replace with a real interior photograph -->
-          <img src="images/placeholder.svg" alt="Inside Barber Station on Camp Road"
+          <img src="images/placeholder.svg" alt="Inside Ministry Barber on Mokoia Road"
                loading="lazy" width="1000" height="1250">
         </div>
 
         <div class="shop__copy">
           <p class="eyebrow">03 — The shop</p>
-          <h2 class="section-title">On Camp Road since day one</h2>
-          <!-- TODO-CONTENT: replace this paragraph with the shop's own words -->
+          <h2 class="section-title">Fifteen years in the chair</h2>
+          <!-- Adapted from the shop's own Google Business description. -->
           <p class="lede">
-            We're a neighbourhood barbershop in Mount Wellington. Fades, classic
-            cuts, beard work and hot towel shaves — done properly, without the
-            fuss. Most days you can walk in. If you'd rather not wait, book a
-            time and we'll be ready for you.
+            A modern barber shop in Birkenhead. Over fifteen years of experience
+            doing fades, beard trims and clean shaves — sharp, but simple. The
+            focus is fresh cuts, friendly vibes and a clean shop, so you feel
+            comfortable the moment you walk in.
           </p>
+          <p class="lede shop__walkin">No bookings, walk-ins only.</p>
         </div>
-      </div>
-
-      <div class="wrap">
-        <!-- TODO-CONTENT: replace with real barbers, portraits and first names -->
-        <ul class="team">
-          <li class="team__member">
-            <img src="images/placeholder.svg" alt="Portrait of a barber" loading="lazy" width="600" height="750">
-            <h3 class="team__name">Name</h3>
-            <p class="team__role">Barber · fades and classic cuts</p>
-          </li>
-          <li class="team__member">
-            <img src="images/placeholder.svg" alt="Portrait of a barber" loading="lazy" width="600" height="750">
-            <h3 class="team__name">Name</h3>
-            <p class="team__role">Barber · beard work</p>
-          </li>
-          <li class="team__member">
-            <img src="images/placeholder.svg" alt="Portrait of a barber" loading="lazy" width="600" height="750">
-            <h3 class="team__name">Name</h3>
-            <p class="team__role">Barber · skin fades</p>
-          </li>
-        </ul>
       </div>
     </section>
 
@@ -254,7 +234,7 @@
       <div class="wrap">
         <p class="eyebrow">04 — Reviews</p>
         <h2 class="section-title">
-          <span class="stars" aria-hidden="true">★</span> 4.8 from 118 reviews
+          <span class="stars" aria-hidden="true">★</span> 5.0 from 113 reviews
         </h2>
 
         <!-- TODO-CONTENT: replace all three with real, accurately quoted Google
@@ -275,7 +255,7 @@
           </li>
         </ul>
 
-        <a class="reviews__link" href="https://maps.google.com/?q=Barber+Station+Camp+Road+Mount+Wellington"
+        <a class="reviews__link" href="https://maps.google.com/?q=Ministry+Barber+Mokoia+Road+Birkenhead+Auckland"
            target="_blank" rel="noopener">Read all reviews on Google</a>
       </div>
     </section>
@@ -289,42 +269,40 @@
       <div class="wrap visit">
         <div class="visit__map">
           <iframe
-            title="Map showing Barber Station on Camp Road, Mount Wellington"
-            src="https://www.google.com/maps?q=Barber+Station+Camp+Road+Mount+Wellington+Auckland&output=embed"
+            title="Map showing Ministry Barber on Mokoia Road, Birkenhead"
+            src="https://www.google.com/maps?q=Ministry+Barber+Mokoia+Road+Birkenhead+Auckland&amp;output=embed"
             loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
 
         <div class="visit__details">
           <h3 class="visit__heading">Address</h3>
-          <!-- TODO-CONTENT: confirm 1/2 vs 2 Camp Road -->
-          <p>1/2 Camp Road<br>Mount Wellington<br>Auckland 1062</p>
+          <p>3/25 Mokoia Road<br>Birkenhead<br>Auckland 0626</p>
 
           <h3 class="visit__heading">Hours</h3>
-          <!-- TODO-CONTENT: confirm hours. Any change here MUST also be made in
-               the JSON-LD openingHoursSpecification block in <head>. -->
+          <!-- TODO-CONTENT: CLOSING TIMES ARE PLACEHOLDERS. Only the 9am open is
+               confirmed. Any change here MUST also be made in the JSON-LD
+               openingHoursSpecification block in the head. -->
           <table class="hours-table">
             <tbody>
-              <tr data-day="1"><th scope="row">Monday</th><td>8am – 5pm</td></tr>
-              <tr data-day="2"><th scope="row">Tuesday</th><td>8am – 5pm</td></tr>
-              <tr data-day="3"><th scope="row">Wednesday</th><td>8am – 5pm</td></tr>
-              <tr data-day="4"><th scope="row">Thursday</th><td>8am – 5pm</td></tr>
-              <tr data-day="5"><th scope="row">Friday</th><td>8am – 5pm</td></tr>
-              <tr data-day="6"><th scope="row">Saturday</th><td>6am – 2pm</td></tr>
+              <tr data-day="1"><th scope="row">Monday</th><td>9am – 6pm</td></tr>
+              <tr data-day="2"><th scope="row">Tuesday</th><td>9am – 6pm</td></tr>
+              <tr data-day="3"><th scope="row">Wednesday</th><td>9am – 6pm</td></tr>
+              <tr data-day="4"><th scope="row">Thursday</th><td>9am – 6pm</td></tr>
+              <tr data-day="5"><th scope="row">Friday</th><td>9am – 6pm</td></tr>
+              <tr data-day="6"><th scope="row">Saturday</th><td>9am – 5pm</td></tr>
               <tr data-day="0"><th scope="row">Sunday</th><td>Closed</td></tr>
             </tbody>
           </table>
 
           <h3 class="visit__heading">Contact</h3>
-          <p>
-            <a href="tel:+64204227237">020 422 7237</a><br>
-            <a href="mailto:barberstationltd@gmail.com">barberstationltd@gmail.com</a><br>
-            <!-- TODO-CONTENT: replace with the exact Facebook page URL -->
-            <a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a>
-          </p>
+          <!-- TODO-CONTENT: the Google listing shows no email and no social
+               links. Add them here if the shop has any. -->
+          <p><a href="tel:+64211698886">021 169 8886</a></p>
+          <p class="visit__walkin">Walk-ins only — no bookings taken.</p>
 
           <a class="btn btn--primary visit__cta"
-             href="https://barberstationskz8.setmore.com"
-             target="_blank" rel="noopener">Book appointment</a>
+             href="https://www.google.com/maps/dir/?api=1&amp;destination=Ministry+Barber+3%2F25+Mokoia+Road+Birkenhead+Auckland"
+             target="_blank" rel="noopener">Get directions</a>
         </div>
       </div>
     </section>
@@ -333,15 +311,15 @@
 
   <footer class="site-footer">
     <div class="wrap site-footer__inner">
-      <a class="wordmark" href="#top">Barber&nbsp;Station</a>
+      <a class="wordmark" href="#top">Ministry&nbsp;Barber</a>
       <nav class="site-footer__nav" aria-label="Footer">
         <a href="#services">Services</a>
         <a href="#gallery">Gallery</a>
         <a href="#visit">Visit</a>
-        <a href="https://barberstationskz8.setmore.com" target="_blank" rel="noopener">Book</a>
+        <a href="tel:+64211698886">Call</a>
       </nav>
       <p class="site-footer__legal">
-        &copy; <span id="year">2026</span> Barber Station · 1/2 Camp Road, Mount Wellington, Auckland
+        &copy; <span id="year">2026</span> Ministry Barber · 3/25 Mokoia Road, Birkenhead, Auckland
       </p>
     </div>
   </footer>
@@ -359,10 +337,10 @@
   </dialog>
 
   <div class="mobile-bar">
-    <a class="btn btn--ghost" href="tel:+64204227237">Call</a>
-    <a class="btn btn--primary"
-       href="https://barberstationskz8.setmore.com"
-       target="_blank" rel="noopener">Book now</a>
+    <a class="btn btn--ghost"
+       href="https://www.google.com/maps/dir/?api=1&amp;destination=Ministry+Barber+3%2F25+Mokoia+Road+Birkenhead+Auckland"
+       target="_blank" rel="noopener">Directions</a>
+    <a class="btn btn--primary" href="tel:+64211698886">Call</a>
   </div>
 
   <script type="module" src="js/main.js"></script>

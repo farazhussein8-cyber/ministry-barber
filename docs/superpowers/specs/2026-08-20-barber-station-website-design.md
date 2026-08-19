@@ -33,31 +33,39 @@ These are deliberately excluded and should not be added without a new decision:
 
 ## 2. Business facts
 
+> **Superseded 2026-08-20.** This site was re-pointed from Barber Station
+> (Mount Wellington) to **Ministry Barber** (Birkenhead). The facts below are
+> the current ones. The most consequential difference: Ministry Barber takes
+> **no bookings — walk-ins only**, so the booking hand-off described in §1 no
+> longer exists and the primary calls to action are Call and Get directions.
+> See `LAUNCH.md` for the live checklist.
+
 These are the source of truth for content. Items marked **UNCONFIRMED** must be
 verified with the shop owner before launch.
 
 | Field | Value | Status |
 |---|---|---|
-| Trading name | Barber Station | Confirmed |
-| Address | 1/2 Camp Road, Mount Wellington, Auckland 1062 | **UNCONFIRMED** |
-| Phone | 020 422 7237 | Confirmed |
-| Email | barberstationltd@gmail.com | Confirmed |
-| Hours, Mon–Fri | 8:00am – 5:00pm | **UNCONFIRMED** |
-| Hours, Sat | 6:00am – 2:00pm | **UNCONFIRMED** |
-| Hours, Sun | Closed | **UNCONFIRMED** |
-| Google rating | 4.8 from 118 reviews | Confirmed at time of writing |
-| Facebook following | 1,100+ | Confirmed |
-| Booking platform | https://barberstationskz8.setmore.com | Confirmed |
+| Trading name | Ministry Barber | Confirmed |
+| Address | 3/25 Mokoia Road, Birkenhead, Auckland 0626 | Confirmed |
+| Phone | 021 169 8886 | Confirmed |
+| Email | none published | — |
+| Hours, opening time | 9:00am | Confirmed |
+| Hours, Mon–Fri close | 6:00pm | **UNCONFIRMED — placeholder** |
+| Hours, Sat close | 5:00pm | **UNCONFIRMED — placeholder** |
+| Hours, Sun | Closed | **UNCONFIRMED — placeholder** |
+| Google rating | 5.0 from 113 reviews | Confirmed at time of writing |
+| Booking platform | **None. Walk-ins only.** | Confirmed |
+| Website | none yet — this will be the first | Confirmed |
 
-**Address discrepancy:** Google Business lists `1/2 Camp Road`; the Setmore page
-lists `2 Camp Road`. One is wrong. Resolve before launch, then make the site,
-Google Business, Setmore and Facebook all agree — inconsistent NAP (name,
-address, phone) data across listings measurably harms local search ranking.
+**Hours are the biggest open risk.** Only the 9am open is confirmed; every
+closing time is a placeholder. They are published to Google via the JSON-LD
+block and drive the live open/closed chip, so a wrong value sends customers to a
+closed shop. They appear in exactly two places (the schema and the visible
+table) and `npm test` fails if those two disagree.
 
-**Hours:** a 6:00am Saturday open is unusual enough to be worth re-checking. The
-hours appear in three places in the build (the live open/closed chip, the Visit
-table, and the JSON-LD schema) and all three read from one shared source, so a
-correction is a single edit.
+**Walk-ins only.** Nothing on the site may offer or imply a booking. A test
+asserts there is no Setmore link, no `ReserveAction` in the schema, and no
+button labelled "Book".
 
 ---
 
