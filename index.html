@@ -8,6 +8,10 @@
 
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
 
+  <!-- The hero photograph is the Largest Contentful Paint element. Preloading
+       it starts the fetch before the CSS that references it has parsed. -->
+  <link rel="preload" as="image" href="images/hero-barber.jpg" fetchpriority="high">
+
   <!-- TODO-CONTENT: replace every example.com below with the real domain, and
        swap og-image.svg for a real 1200x630 JPEG (then restore the width and
        height tags noted in LAUNCH.md). -->
@@ -83,7 +87,7 @@
 
   <header class="site-header" id="site-header">
     <div class="wrap site-header__inner">
-      <a class="wordmark" href="#top">Ministry&nbsp;Barber</a>
+      <a class="wordmark" href="#top">Ministry Barber</a>
 
       <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">
         <span class="nav-toggle__box" aria-hidden="true"></span>
@@ -97,24 +101,24 @@
         <a href="#reviews">Reviews</a>
         <a href="#visit">Visit</a>
       </nav>
-
-      <a class="btn btn--primary site-header__cta"
-         href="https://www.google.com/maps/dir/?api=1&amp;destination=Ministry+Barber+3%2F25+Mokoia+Road+Birkenhead+Auckland"
-         target="_blank" rel="noopener">Directions</a>
     </div>
   </header>
 
   <main id="main">
 
     <section class="hero" id="top">
-      <!-- TODO-CONTENT: replace with the real hero photograph -->
-      <img class="hero__img" src="images/placeholder.svg"
-           alt="Inside Ministry Barber in Birkenhead, Auckland"
-           fetchpriority="high" width="1600" height="1000">
+      <!-- TODO-CONTENT: this is a stand-in barber-at-work photo carried over
+           from another project. The barber wears a different shop's branded
+           hoodie and the file is only 1121px wide, so it softens on large
+           screens. Replace with Ministry Barber's own landscape photograph
+           (2400px+ wide) before launch. -->
+      <img class="hero__img" src="images/hero-barber.jpg"
+           alt="A barber fading a client's hair at Ministry Barber"
+           fetchpriority="high" decoding="async" width="1121" height="1403">
 
       <div class="wrap hero__inner">
         <p class="hero__eyebrow">Birkenhead, Auckland</p>
-        <h1 class="hero__title">Walk in.<br>Walk out sharp.</h1>
+        <h1 class="hero__title">Walk in. Walk out sharp.</h1>
 
         <ul class="hero__proof">
           <li id="open-status" class="status" hidden></li>
@@ -123,11 +127,12 @@
         </ul>
 
         <div class="hero__actions">
-          <a class="btn btn--primary" href="tel:+64211698886">Call 021 169 8886</a>
-          <a class="btn btn--ghost"
-             href="https://www.google.com/maps/dir/?api=1&amp;destination=Ministry+Barber+3%2F25+Mokoia+Road+Birkenhead+Auckland"
-             target="_blank" rel="noopener">Get directions</a>
+          <a class="btn btn--primary btn--hero" href="tel:+64211698886">Call 021 169 8886</a>
         </div>
+
+        <a class="hero__secondary"
+           href="https://www.google.com/maps/dir/?api=1&amp;destination=Ministry+Barber+3%2F25+Mokoia+Road+Birkenhead+Auckland"
+           target="_blank" rel="noopener">Get directions</a>
 
         <p class="hero__note">No bookings — walk-ins only.</p>
       </div>

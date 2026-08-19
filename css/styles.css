@@ -127,61 +127,57 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
 }
 
 /* ---------- Header ---------- */
-/* Fixed, not sticky: the header floats over the full-bleed hero so the photo
-   reaches the top of the page. It starts transparent with paper-white type,
-   then becomes the blurred paper bar with ink type once the hero is behind
-   you. The hero's top vignette guarantees contrast in the transparent state. */
+/* A clean paper-white band across the full width, sitting ABOVE the hero
+   rather than over it: centred wordmark, then a single centred navigation row,
+   then a hairline where the hero photograph begins. */
 .site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: relative;
   z-index: 50;
-  background: transparent;
-  color: var(--paper);
-  border-bottom: 1px solid transparent;
-  /* Background and hairline fade; `color` deliberately does NOT transition.
-     Cross-fading paper type to ink passes through a window where the type and
-     the hamburger bars are near-invisible against the incoming paper bar. */
-  transition:
-    background-color 0.3s ease,
-    border-color 0.3s ease;
-}
-
-.site-header.is-scrolled,
-.site-header:has(#site-nav.is-open) {
-  background: color-mix(in srgb, var(--paper) 88%, transparent);
-  backdrop-filter: blur(10px);
+  background: var(--paper);
   color: var(--ink);
-  border-bottom-color: var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 .site-header__inner {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
-  min-height: 72px;
+  padding-top: clamp(2.5rem, 6vw, 4.5rem);
 }
 
 .wordmark {
   font-family: var(--font-display);
-  font-size: 1.5rem;
-  letter-spacing: 0.01em;
+  font-size: clamp(1.5rem, 3.2vw, 2.6rem);
+  line-height: 1;
+  letter-spacing: 0.3em;
+  /* Letter-spacing adds a trailing gap after the final character, which pushes
+     a centred wordmark visually left. Indenting by the same amount re-centres it. */
+  text-indent: 0.3em;
+  text-transform: uppercase;
   text-decoration: none;
-  margin-right: auto;
+  white-space: nowrap;
+  margin-bottom: clamp(1.75rem, 4vw, 2.75rem);
 }
 
-.site-nav { display: flex; gap: 2rem; }
+.site-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(1.25rem, 3vw, 2.75rem);
+}
 .site-nav a {
-  font-size: 0.9375rem;
+  font-size: 0.8125rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   text-decoration: none;
-  padding-bottom: 2px;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.25s ease;
+  padding-bottom: clamp(0.9rem, 2vw, 1.25rem);
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.25s ease, color 0.25s ease;
 }
-.site-nav a:hover { border-bottom-color: var(--brass); }
-
-.site-header__cta { padding: 0.7rem 1.4rem; }
+.site-nav a:hover {
+  border-bottom-color: var(--brass);
+  color: var(--brass-text);
+}
 
 .nav-toggle { display: none; }
 .nav-toggle__box {
@@ -197,8 +193,31 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
 .mobile-bar { display: none; }
 
 @media (max-width: 860px) {
-  .site-header__cta { display: none; }
-  .nav-toggle { display: block; order: 3; }
+  /* Compact header: same wordmark, smaller, with the menu button beside it
+     rather than a full navigation row. */
+  .site-header__inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0;
+    min-height: 64px;
+  }
+
+  .wordmark {
+    font-size: clamp(1.05rem, 4.6vw, 1.4rem);
+    letter-spacing: 0.2em;
+    text-indent: 0.2em;
+    margin-bottom: 0;
+  }
+
+  .nav-toggle {
+    display: grid;
+    place-items: center;
+    /* 44px minimum touch target */
+    width: 44px;
+    height: 44px;
+    margin-right: calc(var(--gutter) * -0.35);
+  }
 
   .site-nav {
     position: absolute;
@@ -206,15 +225,17 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
     flex-direction: column;
     gap: 0;
     background: var(--paper);
-    /* The panel is always paper, so its links must always be ink — otherwise
-       they inherit the header's paper type and vanish over the hero. */
     color: var(--ink);
     border-bottom: 1px solid var(--line);
     padding: 0 var(--gutter) 1rem;
     display: none;
   }
   .site-nav.is-open { display: flex; }
-  .site-nav a { padding: 0.9rem 0; border-bottom: 1px solid var(--line); }
+  .site-nav a {
+    padding: 1.05rem 0;
+    border-bottom: 1px solid var(--line);
+    border-bottom-width: 1px;
+  }
 
   .mobile-bar {
     position: fixed;
@@ -234,12 +255,15 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
 }
 
 /* ---------- Hero ---------- */
+/* Proportioned against the layout reference: its hero occupies ~60% of the
+   viewport height, directly beneath the header band. */
 .hero {
   position: relative;
   display: grid;
-  align-items: end;
-  min-height: min(88vh, 900px);
-  padding-block: clamp(3rem, 8vw, 6rem);
+  place-items: center;
+  text-align: center;
+  min-height: clamp(420px, 60vh, 700px);
+  padding-block: clamp(3rem, 7vw, 5rem);
   isolation: isolate;
   color: var(--paper);
 }
@@ -250,38 +274,47 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* The source is a portrait frame with the barber on the left and the client
+     on the right. Favouring the right keeps the clippers and the fade in shot
+     when the frame is cropped to a wide band. */
+  /* Vertically biased downward: at 50% the wide crop lands on the barber's
+     head and the shelf, cutting the actual work out of frame. 62% brings the
+     clippers and the client's fade into the band. */
+  object-position: 50% 62%;
   z-index: -2;
 }
 
-/* Scrim guarantees AA contrast over any photograph. Dark at the bottom for the
-   headline, dark again at the very top for the overlaid header, and lightest
-   through the middle so the photograph is still the photograph. Even against a
-   pure-white image the top band holds paper-on-scrim at 4.7:1. */
+/* Subtle, even dark overlay so the centred white type stays readable. Held at
+   0.60 minimum: against a worst-case pure-white photograph that still gives
+   paper-on-scrim 4.86:1, clearing WCAG AA for normal text. */
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
   background: linear-gradient(
-    to top,
-    rgba(19, 18, 17, 0.85) 0%,
-    rgba(19, 18, 17, 0.55) 38%,
-    rgba(19, 18, 17, 0.22) 66%,
-    rgba(19, 18, 17, 0.60) 100%
+    to bottom,
+    rgba(19, 18, 17, 0.60) 0%,
+    rgba(19, 18, 17, 0.64) 55%,
+    rgba(19, 18, 17, 0.70) 100%
   );
 }
 
 .hero__eyebrow {
   font-size: 0.75rem;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.28em;
+  text-indent: 0.28em;
   text-transform: uppercase;
-  margin-bottom: 1rem;
+  margin-bottom: clamp(1rem, 2.4vw, 1.5rem);
 }
 
 .hero__title {
   font-family: var(--font-display);
-  font-size: clamp(2.75rem, 8vw, 7.5rem);
-  margin-bottom: 2rem;
+  font-size: clamp(2.25rem, 5.4vw, 4.5rem);
+  letter-spacing: 0.02em;
+  line-height: 1.08;
+  text-wrap: balance;
+  margin-bottom: clamp(1.25rem, 3vw, 2rem);
 }
 
 .hero__proof {
@@ -289,9 +322,10 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
   padding: 0;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.6rem 1.75rem;
   font-size: 0.9375rem;
-  margin-bottom: 2.25rem;
+  margin-bottom: clamp(1.75rem, 3.5vw, 2.5rem);
 }
 .hero__proof li { display: flex; align-items: center; gap: 0.45rem; }
 
@@ -310,22 +344,58 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
 .status[data-open="true"] { color: #7FBF7F; }
 .status[data-open="false"] { color: #D9A5A5; }
 
-.hero__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+/* Secondary action reads as a quiet link under the button, so the single
+   call to action stays singular — matching the reference's one-button hero. */
+.hero__secondary {
+  /* inline-flex + min-height gives the 44px touch target, while the underline
+     stays tight to the text via text-decoration rather than a box border. */
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-inline: 0.5rem;
+  margin-top: clamp(0.5rem, 1.6vw, 0.9rem);
+  font-size: 0.8125rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--paper);
+  text-decoration: underline;
+  text-decoration-color: rgba(250, 249, 246, 0.45);
+  text-underline-offset: 6px;
+  transition: text-decoration-color 0.25s ease;
+}
+.hero__secondary:hover { text-decoration-color: var(--paper); }
 
 /* The single most important thing a first-time visitor needs to know about
    this shop: there is nothing to book. */
 .hero__note {
-  margin-top: 1.5rem;
+  margin-top: clamp(1.5rem, 3.2vw, 2.25rem);
   font-size: 0.75rem;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.2em;
+  text-indent: 0.2em;
   text-transform: uppercase;
   color: var(--paper);
 }
+
 .hero .btn { border-color: var(--paper); }
 .hero .btn--primary { background: var(--paper); color: var(--ink); }
 .hero .btn--primary:hover { background: transparent; color: var(--paper); }
 .hero .btn--ghost { color: var(--paper); }
 .hero .btn--ghost:hover { background: var(--paper); color: var(--ink); }
+
+/* Generous, premium proportions for the one hero button. */
+.btn--hero {
+  padding: 1.05rem 2.4rem;
+  font-size: 0.875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
 
 /* ---------- Services ---------- */
 .menu__lede { margin-top: 1.25rem; }
@@ -631,7 +701,9 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
 }
 .reveal.is-visible { opacity: 1; transform: none; }
 
-html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+/* The header scrolls away with the page now, so anchors only need a little
+   breathing room rather than clearance for a fixed bar. */
+html { scroll-behavior: smooth; scroll-padding-top: 1.5rem; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
