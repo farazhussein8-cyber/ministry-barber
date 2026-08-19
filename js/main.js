@@ -51,14 +51,31 @@ function initNav() {
   });
 }
 
-/* ---------- Header hairline on scroll ---------- */
+/* ---------- Header: transparent over the hero, solid once past it ----------
+   Driven by an IntersectionObserver rather than a scroll listener. A scroll
+   listener only fires when the browser emits a scroll event, which it does not
+   always do for a fragment jump (example.com/#visit) or for scroll restoration
+   on reload — leaving paper-white header type stranded on the paper bar. The
+   observer reports the correct state however the page arrived at that position,
+   including on first paint. */
 function initHeader() {
   const header = document.querySelector("#site-header");
   if (!header) return;
-  const onScroll = () =>
+
+  const sync = () =>
     header.classList.toggle("is-scrolled", window.scrollY > 24);
-  onScroll();
-  window.addEventListener("scroll", onScroll, { passive: true });
+
+  sync();
+  window.addEventListener("scroll", sync, { passive: true });
+
+  // A scroll event is not guaranteed for every way the page can end up part-way
+  // down: a fragment deep-link (example.com/#visit), the browser restoring
+  // scroll position on reload, or a resize that reflows the page. Without these,
+  // paper-white header type can be left stranded on the paper bar.
+  window.addEventListener("hashchange", sync);
+  window.addEventListener("resize", sync, { passive: true });
+  window.addEventListener("load", sync);
+  window.addEventListener("pageshow", sync);
 }
 
 /* ---------- Scroll reveal ---------- */

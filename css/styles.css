@@ -127,16 +127,34 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
 }
 
 /* ---------- Header ---------- */
+/* Fixed, not sticky: the header floats over the full-bleed hero so the photo
+   reaches the top of the page. It starts transparent with paper-white type,
+   then becomes the blurred paper bar with ink type once the hero is behind
+   you. The hero's top vignette guarantees contrast in the transparent state. */
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 50;
+  background: transparent;
+  color: var(--paper);
+  border-bottom: 1px solid transparent;
+  /* Background and hairline fade; `color` deliberately does NOT transition.
+     Cross-fading paper type to ink passes through a window where the type and
+     the hamburger bars are near-invisible against the incoming paper bar. */
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.site-header.is-scrolled,
+.site-header:has(#site-nav.is-open) {
   background: color-mix(in srgb, var(--paper) 88%, transparent);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.3s ease;
+  color: var(--ink);
+  border-bottom-color: var(--line);
 }
-.site-header.is-scrolled { border-bottom-color: var(--line); }
 
 .site-header__inner {
   display: flex;
@@ -170,8 +188,9 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
   display: block;
   width: 22px;
   height: 10px;
-  border-top: 1px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
+  /* currentColor so the bars flip with the header's paper/ink state */
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
 }
 
 /* ---------- Mobile action bar ---------- */
@@ -187,6 +206,9 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
     flex-direction: column;
     gap: 0;
     background: var(--paper);
+    /* The panel is always paper, so its links must always be ink — otherwise
+       they inherit the header's paper type and vanish over the hero. */
+    color: var(--ink);
     border-bottom: 1px solid var(--line);
     padding: 0 var(--gutter) 1rem;
     display: none;
@@ -231,7 +253,10 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
   z-index: -2;
 }
 
-/* Scrim guarantees AA contrast over any photograph. */
+/* Scrim guarantees AA contrast over any photograph. Dark at the bottom for the
+   headline, dark again at the very top for the overlaid header, and lightest
+   through the middle so the photograph is still the photograph. Even against a
+   pure-white image the top band holds paper-on-scrim at 4.7:1. */
 .hero::after {
   content: "";
   position: absolute;
@@ -239,9 +264,10 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
   z-index: -1;
   background: linear-gradient(
     to top,
-    rgba(19, 18, 17, 0.82) 0%,
-    rgba(19, 18, 17, 0.55) 45%,
-    rgba(19, 18, 17, 0.15) 100%
+    rgba(19, 18, 17, 0.85) 0%,
+    rgba(19, 18, 17, 0.55) 38%,
+    rgba(19, 18, 17, 0.22) 66%,
+    rgba(19, 18, 17, 0.60) 100%
   );
 }
 
@@ -410,10 +436,13 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
   color: var(--line);
 }
 
+/* All three controls sit INSIDE the dialog frame at every width. Placing them
+   outside only fits above ~1210px: below that the dialog is 94vw, which leaves
+   roughly 26px of margin for a control needing 52px, so they fall off-screen. */
 .lightbox__close {
   position: absolute;
-  top: -3rem;
-  right: 0;
+  top: 0.5rem;
+  right: 0.5rem;
   display: grid;
   place-items: center;
   width: 44px;
@@ -421,37 +450,29 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
   font-size: 2.25rem;
   line-height: 1;
   color: var(--paper);
+  background: rgba(19, 18, 17, 0.55);
+  border-radius: 999px;
 }
 
 .lightbox__nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 64px;
   font-size: 3rem;
   line-height: 1;
-  padding: 0.5rem 1rem;
   color: var(--paper);
+  background: rgba(19, 18, 17, 0.55);
+  border-radius: 6px;
 }
-.lightbox__nav--prev { left: -3.25rem; }
-.lightbox__nav--next { right: -3.25rem; }
+.lightbox__nav--prev { left: 0.5rem; }
+.lightbox__nav--next { right: 0.5rem; }
 
 .lightbox :focus-visible { outline-color: var(--paper); }
 
-@media (max-width: 860px) {
-  .lightbox__nav--prev { left: 0; }
-  .lightbox__nav--next { right: 0; }
-  .lightbox__nav { background: rgba(19, 18, 17, 0.55); }
-
-  /* On a phone the dialog fills the height, so a close button sitting above
-     it lands off-screen. Bring it inside and give it a backing so it stays
-     legible over the image. */
-  .lightbox__close {
-    top: 0.35rem;
-    right: 0.35rem;
-    background: rgba(19, 18, 17, 0.55);
-    border-radius: 999px;
-  }
-}
 
 /* ---------- The shop ---------- */
 .shop {
