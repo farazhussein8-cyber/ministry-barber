@@ -85,12 +85,12 @@ These came from the Google Business listing and are already in the site:
       shave, kids cut) are inferred from the shop's own description, not from a
       price list.
 - [ ] **Hero photograph**, landscape, at least 1600px wide.
-- [x] ~~**8 gallery photographs.**~~ **Done — six in place.** The grid is now
-      three columns of 4:5 portrait tiles, sized to the shots supplied. Five of
-      the six are low-resolution (roughly 470–800px wide), so they will look
-      soft on a high-DPI screen — reshoot or source the originals at 1600px
-      wide when you can, and drop them in over `images/work-0*.jpg`. Keep new
-      shots portrait to match the tiles.
+- [x] ~~**8 gallery photographs.**~~ **Done — six in place.** The grid is three
+      columns of 4:5 portrait tiles. All six are the full-size originals, 1200px
+      on the long edge, so they hold up on a high-DPI screen. Any replacement
+      should be portrait to match the tiles; drop it over the matching
+      `images/work-0*.jpg` and update the `width`/`height` attributes so the
+      layout does not shift while it loads.
 - [ ] **1–2 interior photographs.**
 - [x] ~~Three genuine Google review quotes.~~ **Done.** Murphy R., William I.
       and Spencer W. are on the site, quoted in full and unedited. Each was
