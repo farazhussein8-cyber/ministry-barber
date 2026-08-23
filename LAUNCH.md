@@ -35,11 +35,29 @@ Visit section. `npm test` fails if the two disagree.
 
 Still worth resolving with the shop:
 
-- [ ] **Address conflict.** Google gives **3/25 Mokoia Road**; the Birkenhead
-      Town Centre directory gives **1/25 Mokoia Rd**. The site uses Google's
-      3/25. <https://www.birkenhead.net.nz/shop/Stylists/MensBarbers/Ministry+Barbershop.html>
-- [ ] **Trading name.** The site uses "Ministry Barber" per the Google profile;
-      the directory lists "Ministry Barbershop".
+- [ ] **Address conflict — the site may be showing the wrong unit number.**
+      Two independent sources say **1/25**, only Google says **3/25**, and the
+      site currently uses Google's:
+
+      | Source | Address |
+      |---|---|
+      | Google Business profile | 3/25 Mokoia Road |
+      | **The shop's own Instagram bio** | **1/25 mokoia road** |
+      | Birkenhead Town Centre directory | 1/25 Mokoia Rd |
+
+      The Instagram account is confirmed theirs — its bio carries the exact
+      phone number, 021 169 8886. A business's own profile is normally the
+      better authority on its own address, so **3/25 is probably wrong.** For a
+      walk-in-only shop this is the single most important fact on the site.
+      Confirm and, if 1/25 is right, update: the visible address, the JSON-LD
+      `streetAddress`, the hero line, the footer, and all three Google Maps
+      directions links.
+
+- [ ] **Trading name.** Three spellings are in play — Google says "MINISTRY
+      BARBER", the Instagram account is "♛ MINISTER.BARBER ♛"
+      (`@minister.barber1`), and the directory says "Ministry Barbershop". The
+      site uses "Ministry Barber". Worth settling which is the real trading
+      name, since it affects the wordmark, the page title and the schema.
 
 ## Confirmed business facts
 

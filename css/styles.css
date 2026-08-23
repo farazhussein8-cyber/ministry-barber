@@ -738,3 +738,17 @@ html { scroll-behavior: smooth; scroll-padding-top: 1.5rem; }
   }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ---------- Social link ---------- */
+.visit__social { margin-top: 0.6rem; }
+.visit__social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  /* 44px touch target without inflating the visible link */
+  min-height: 44px;
+  text-decoration-color: var(--line);
+  text-underline-offset: 3px;
+}
+.visit__social .icon { flex: none; }
+.visit__social a:hover { color: var(--brass-text); }
