@@ -266,8 +266,11 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
   justify-items: center;
   align-items: center;
   text-align: center;
-  min-height: clamp(420px, 60vh, 700px);
-  padding-block: clamp(3rem, 7vw, 5rem);
+  /* 50vh rather than the reference's ~60%: with no calls to action left in the
+     hero, the top of the action panels needs to break the fold on desktop so
+     there is something clickable on landing. */
+  min-height: clamp(380px, 50vh, 600px);
+  padding-block: clamp(2.5rem, 5.5vw, 4rem);
   isolation: isolate;
   color: var(--paper);
 }
@@ -705,7 +708,10 @@ html { scroll-behavior: smooth; scroll-padding-top: 1.5rem; }
    Three equal panels directly under the hero: call, walk-ins, find us.
    Deliberately no booking panel — the shop takes no bookings. */
 .actions {
-  padding-block: clamp(2.75rem, 6vw, 4.5rem);
+  /* Tighter above than below: lifting the panels closer to the hero puts the
+     first call to action inside the fold on a standard 1080-tall desktop. */
+  padding-top: clamp(2rem, 4vw, 3rem);
+  padding-bottom: clamp(2.75rem, 6vw, 4.5rem);
   border-bottom: 1px solid var(--line);
 }
 
