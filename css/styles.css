@@ -571,12 +571,19 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
 }
 
 /* ---------- Reviews ---------- */
-.reviews { border-top: 1px solid var(--line); }
+.reviews {
+  border-top: 1px solid var(--line);
+  /* Tighter than the shared --section-gap: about 27% less padding from the
+     860px breakpoint upward, where the three columns already leave the
+     section looking airy. The floor stays high enough that phones, which
+     never reach the 8vw middle term, only lose about 15%. */
+  padding-block: clamp(4.25rem, 8vw, 6.25rem);
+}
 
 .quotes {
   list-style: none;
   padding: 0;
-  margin-top: 3.5rem;
+  margin-top: 2.5rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: clamp(1.5rem, 4vw, 3rem);
