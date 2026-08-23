@@ -572,13 +572,22 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
 
 /* ---------- Reviews ---------- */
 .reviews {
+  --reviews-pad: clamp(4.25rem, 8vw, 6.25rem);
   border-top: 1px solid var(--line);
   /* Tighter than the shared --section-gap: about 27% less padding from the
      860px breakpoint upward, where the three columns already leave the
      section looking airy. The floor stays high enough that phones, which
      never reach the 8vw middle term, only lose about 15%. */
-  padding-block: clamp(4.25rem, 8vw, 6.25rem);
+  padding-block: var(--reviews-pad);
+  /* The run into Visit is this padding plus that section's own top padding,
+     so the 40% trim comes off both halves of the boundary rather than
+     gutting one side and leaving the section bottom-heavy. */
+  padding-bottom: calc(var(--reviews-pad) * 0.6);
 }
+
+/* The other half of the same boundary. Scoped to the section that follows
+   Reviews, so no other section's padding moves. */
+.reviews + .section { padding-top: calc(var(--section-gap) * 0.6); }
 
 .quotes {
   list-style: none;
