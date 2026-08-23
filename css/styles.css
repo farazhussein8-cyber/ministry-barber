@@ -695,6 +695,14 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
   font-size: 0.8125rem;
   color: var(--muted);
 }
+.site-footer__credit {
+  width: 100%;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
 
 /* ---------- Reveal ----------
    The .reveal class is added by JavaScript, never in the HTML, so that with
