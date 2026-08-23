@@ -778,3 +778,22 @@ html { scroll-behavior: smooth; scroll-padding-top: 1.5rem; }
   .panels { grid-template-columns: 1fr; }
   .panel__cta { align-self: stretch; }
 }
+
+/* Instagram in the hero status bar. Kept at metadata weight rather than made
+   a button, so it does not compete with the action panels below. */
+.hero__ig {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  /* 44px touch target; the negative block margin stops it inflating the
+     status row's height on desktop. */
+  min-height: 44px;
+  margin-block: -0.6rem;
+  color: var(--paper);
+  text-decoration: underline;
+  text-decoration-color: rgba(250, 249, 246, 0.4);
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.25s ease;
+}
+.hero__ig:hover { text-decoration-color: var(--paper); }
+.hero__ig svg { flex: none; }
