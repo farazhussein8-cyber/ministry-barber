@@ -606,7 +606,7 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
 
 .reviews__link {
   display: inline-block;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
   font-size: 0.9375rem;
   border-bottom: 1px solid var(--brass);
   text-decoration: none;
@@ -663,6 +663,7 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
 
 @media (max-width: 860px) {
   .quotes { grid-template-columns: 1fr; }
+  .reviews__link { margin-top: 1.25rem; }
   .visit { grid-template-columns: 1fr; }
 }
 
