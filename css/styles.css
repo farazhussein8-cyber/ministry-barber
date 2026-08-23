@@ -752,3 +752,75 @@ html { scroll-behavior: smooth; scroll-padding-top: 1.5rem; }
 }
 .visit__social .icon { flex: none; }
 .visit__social a:hover { color: var(--brass-text); }
+
+/* ---------- Action panels ----------
+   Three equal panels directly under the hero: call, walk-ins, find us.
+   Deliberately no booking panel — the shop takes no bookings. */
+.actions {
+  padding-block: clamp(2.75rem, 6vw, 4.5rem);
+  border-bottom: 1px solid var(--line);
+}
+
+.panels {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  border: 1px solid var(--line);
+  background: var(--paper);
+  transition: border-color 0.25s ease;
+}
+.panel:hover { border-color: var(--brass); }
+
+.panel__icon {
+  color: var(--brass);
+  margin-bottom: 0.35rem;
+}
+
+.panel__label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brass-text);
+}
+
+.panel__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  line-height: 1.1;
+}
+
+.panel__text {
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.panel__meta {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* margin-top:auto pins every call to action to the panel floor, so the
+   buttons line up across all three regardless of copy length. */
+.panel__cta {
+  margin-top: auto;
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+
+@media (max-width: 860px) {
+  .panels { grid-template-columns: 1fr; }
+  .panel__cta { align-self: stretch; }
+}
