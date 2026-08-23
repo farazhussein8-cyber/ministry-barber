@@ -369,58 +369,6 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
 .status[data-open="true"] { color: #7FBF7F; }
 .status[data-open="false"] { color: #D9A5A5; }
 
-.hero__actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.75rem;
-}
-
-/* Secondary action reads as a quiet link under the button, so the single
-   call to action stays singular — matching the reference's one-button hero. */
-.hero__secondary {
-  /* inline-flex + min-height gives the 44px touch target, while the underline
-     stays tight to the text via text-decoration rather than a box border. */
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  padding-inline: 0.5rem;
-  margin-top: clamp(0.5rem, 1.6vw, 0.9rem);
-  font-size: 0.8125rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--paper);
-  text-decoration: underline;
-  text-decoration-color: rgba(250, 249, 246, 0.45);
-  text-underline-offset: 6px;
-  transition: text-decoration-color 0.25s ease;
-}
-.hero__secondary:hover { text-decoration-color: var(--paper); }
-
-/* The single most important thing a first-time visitor needs to know about
-   this shop: there is nothing to book. */
-.hero__note {
-  margin-top: clamp(1.5rem, 3.2vw, 2.25rem);
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
-  text-indent: 0.2em;
-  text-transform: uppercase;
-  color: var(--paper);
-}
-
-.hero .btn { border-color: var(--paper); }
-.hero .btn--primary { background: var(--paper); color: var(--ink); }
-.hero .btn--primary:hover { background: transparent; color: var(--paper); }
-.hero .btn--ghost { color: var(--paper); }
-.hero .btn--ghost:hover { background: var(--paper); color: var(--ink); }
-
-/* Generous, premium proportions for the one hero button. */
-.btn--hero {
-  padding: 1.05rem 2.4rem;
-  font-size: 0.875rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
 
 /* ---------- Services ---------- */
 .menu__lede { margin-top: 1.25rem; }
