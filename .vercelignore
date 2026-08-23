@@ -10,3 +10,4 @@ docs/
 node_modules/
 package.json
 LAUNCH.md
+.claude/
