@@ -35,23 +35,23 @@ Visit section. `npm test` fails if the two disagree.
 
 Still worth resolving with the shop:
 
-- [ ] **Address conflict — the site may be showing the wrong unit number.**
-      Two independent sources say **1/25**, only Google says **3/25**, and the
-      site currently uses Google's:
+- [x] ~~Address conflict.~~ **Resolved: the site now uses 1/25 Mokoia Road.**
 
       | Source | Address |
       |---|---|
-      | Google Business profile | 3/25 Mokoia Road |
       | **The shop's own Instagram bio** | **1/25 mokoia road** |
       | Birkenhead Town Centre directory | 1/25 Mokoia Rd |
+      | Google Business profile | 3/25 Mokoia Road |
 
-      The Instagram account is confirmed theirs — its bio carries the exact
-      phone number, 021 169 8886. A business's own profile is normally the
-      better authority on its own address, so **3/25 is probably wrong.** For a
-      walk-in-only shop this is the single most important fact on the site.
-      Confirm and, if 1/25 is right, update: the visible address, the JSON-LD
-      `streetAddress`, the hero line, the footer, and all three Google Maps
-      directions links.
+      Two independent sources against one, and the Instagram account is
+      confirmed theirs — its bio carries the exact phone number, 021 169 8886.
+      Updated in all eight places: the JSON-LD `streetAddress`, the hero status
+      bar, the Visit address block, the footer, three Google Maps directions
+      links, and the assertion in `tests/content.test.js`.
+
+- [ ] **Fix the Google Business listing.** Google still says 3/25. Since Google
+      is what most people will actually see, correcting it there matters more
+      than the website. Also add the new domain to the listing once it exists.
 
 - [ ] **Trading name.** Three spellings are in play — Google says "MINISTRY
       BARBER", the Instagram account is "♛ MINISTER.BARBER ♛"

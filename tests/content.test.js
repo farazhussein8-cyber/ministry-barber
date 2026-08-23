@@ -36,7 +36,7 @@ test("the JSON-LD block is valid JSON and describes the business", () => {
   assert.equal(schema["@type"], "HairSalon");
   assert.equal(schema.name, "Ministry Barber");
   assert.equal(schema.telephone, "+64211698886");
-  assert.equal(schema.address.streetAddress, "3/25 Mokoia Road");
+  assert.equal(schema.address.streetAddress, "1/25 Mokoia Road");
   assert.equal(schema.address.addressLocality, "Birkenhead");
   assert.equal(schema.aggregateRating.ratingValue, "5.0");
   assert.equal(schema.aggregateRating.reviewCount, "113");
@@ -76,7 +76,7 @@ test("contact details are consistent across the page", () => {
     "the human-readable phone number is shown"
   );
   assert.ok(
-    html.includes("3/25 Mokoia Road"),
+    html.includes("1/25 Mokoia Road"),
     "street address matches the schema"
   );
 });
