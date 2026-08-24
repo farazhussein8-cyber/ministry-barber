@@ -579,15 +579,18 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
      section looking airy. The floor stays high enough that phones, which
      never reach the 8vw middle term, only lose about 15%. */
   padding-block: var(--reviews-pad);
-  /* The run into Visit is this padding plus that section's own top padding,
-     so the 40% trim comes off both halves of the boundary rather than
-     gutting one side and leaving the section bottom-heavy. */
-  padding-bottom: calc(var(--reviews-pad) * 0.6);
+  /* The run from the Google link down to the Visit eyebrow is this padding
+     plus that section's own top padding. Tuned to land near 100px on
+     desktop, split across both halves of the boundary rather than gutting
+     one side and leaving the section bottom-heavy. */
+  padding-bottom: max(2.25rem, calc(var(--reviews-pad) * 0.42));
 }
 
 /* The other half of the same boundary. Scoped to the section that follows
-   Reviews, so no other section's padding moves. */
-.reviews + .section { padding-top: calc(var(--section-gap) * 0.6); }
+   Reviews, so no other section's padding moves. The floors matter on
+   phones: their base padding is already small, and following the desktop
+   ratio down would close this boundary tighter than any other on the page. */
+.reviews + .section { padding-top: max(2.75rem, calc(var(--section-gap) * 0.42)); }
 
 .quotes {
   list-style: none;
