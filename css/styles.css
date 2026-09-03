@@ -681,7 +681,12 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
 
 /* ---------- Footer ---------- */
 .site-footer {
-  border-top: 1px solid var(--line);
+  /* Same warm charcoal as the action band, so the page closes on the surface
+     it opened the calls to action with. The cream-to-charcoal edge is the
+     separator now, so the old hairline rule would just read as a stray
+     highlight sitting on top of the dark. */
+  background: var(--charcoal);
+  color: var(--paper);
   padding-block: 3rem;
 }
 .site-footer__inner {
@@ -693,10 +698,13 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
 .site-footer__nav { display: flex; gap: 1.5rem; margin-right: auto; }
 .site-footer__nav a { font-size: 0.9375rem; text-decoration: none; }
 .site-footer__nav a:hover { border-bottom: 1px solid var(--brass); }
+/* --muted is tuned for cream and goes muddy here. These match the secondary
+   and tertiary steps the action band already uses on the same charcoal:
+   9.0:1 and 5.8:1, both clear of AA at these sizes. */
 .site-footer__legal {
   width: 100%;
   font-size: 0.8125rem;
-  color: var(--muted);
+  color: rgba(250, 249, 246, 0.72);
 }
 .site-footer__credit {
   width: 100%;
@@ -704,7 +712,7 @@ h1, h2, h3 { font-weight: 400; line-height: 1.05; text-wrap: balance; }
   font-size: 0.75rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: rgba(250, 249, 246, 0.55);
 }
 
 /* ---------- Reveal ----------
